@@ -4,6 +4,19 @@ This repo is for individuals who want to get started with Streamlit on client si
 
 Streamlit docs:  https://docs.streamlit.io/get-started
 
+## How to use this repo
+
+1. Clone the repo
+2. Install poetry and install dependencies
+```
+poetry install
+```
+3. Run the app locally:
+```
+poetry run streamlit run app.py
+```
+
+
 ## Steps I followed (Linux):
 
 1. Create a new poetry project
@@ -15,6 +28,10 @@ poetry new streamlit-template
 ```
 poetry add streamlit
 ```
+
+3. Created a basic app in app.py
+
+4. Added a module containing a callback function
 
 
 ## Multipage apps
