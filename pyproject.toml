@@ -5,8 +5,9 @@ description = ""
 authors = ["Ezra-Kirk <ezrakirk@kubrickgroup.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.11"
 streamlit = "^1.31.1"
+snowflake-snowpark-python = "^1.13.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

@@ -13,11 +13,18 @@ numpy = "*"
 packaging = "*"
 pandas = ">=0.25"
 toolz = "*"
-typing-extensions = {version = ">=4.0.1", markers = "python_version < \"3.11\""}
 
 [package.extras]
 dev = ["anywidget", "geopandas", "hatch", "ipython", "m2r", "mypy", "pandas-stubs", "pyarrow (>=11)", "pytest", "pytest-cov", "ruff (>=0.1.3)", "types-jsonschema", "types-setuptools", "vega-datasets", "vegafusion[embed] (>=1.4.0)", "vl-convert-python (>=1.1.0)"]
 doc = ["docutils", "jinja2", "myst-parser", "numpydoc", "pillow (>=9,<10)", "pydata-sphinx-theme (>=0.14.1)", "scipy", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinxext-altair"]
+
+[[package]]
+name = "asn1crypto"
+version = "1.5.1"
+description = "Fast ASN.1 parser and serializer with definitions for private keys, public keys, certificates, CRL, OCSP, CMS, PKCS#3, PKCS#7, PKCS#8, PKCS#12, PKCS#5, X.509 and TSP"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "atomicwrites"
@@ -68,6 +75,17 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "cffi"
+version = "1.16.0"
+description = "Foreign Function Interface for Python calling C code."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+pycparser = "*"
+
+[[package]]
 name = "charset-normalizer"
 version = "3.3.2"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
@@ -87,12 +105,54 @@ python-versions = ">=3.7"
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
+name = "cloudpickle"
+version = "2.2.1"
+description = "Extended pickling support for Python objects"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
 category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+
+[[package]]
+name = "cryptography"
+version = "42.0.5"
+description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+cffi = {version = ">=1.12", markers = "platform_python_implementation != \"PyPy\""}
+
+[package.extras]
+docs = ["sphinx (>=5.3.0)", "sphinx-rtd-theme (>=1.1.1)"]
+docstest = ["pyenchant (>=1.6.11)", "readme-renderer", "sphinxcontrib-spelling (>=4.0.1)"]
+nox = ["nox"]
+pep8test = ["ruff", "mypy", "check-sdist", "click"]
+sdist = ["build"]
+ssh = ["bcrypt (>=3.1.5)"]
+test = ["pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest-xdist", "pretend", "certifi"]
+test-randomorder = ["pytest-randomly"]
+
+[[package]]
+name = "filelock"
+version = "3.13.1"
+description = "A platform independent file lock."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+docs = ["furo (>=2023.9.10)", "sphinx-autodoc-typehints (>=1.24)", "sphinx (>=7.2.6)"]
+testing = ["covdefaults (>=2.3)", "coverage (>=7.3.2)", "diff-cover (>=8)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)", "pytest-timeout (>=2.2)", "pytest (>=7.4.3)"]
+typing = ["typing-extensions (>=4.8)"]
 
 [[package]]
 name = "gitdb"
@@ -256,11 +316,7 @@ optional = false
 python-versions = ">=3.9"
 
 [package.dependencies]
-numpy = [
-    {version = ">=1.22.4,<2", markers = "python_version < \"3.11\""},
-    {version = ">=1.23.2,<2", markers = "python_version == \"3.11\""},
-    {version = ">=1.26.0,<2", markers = "python_version >= \"3.12\""},
-]
+numpy = {version = ">=1.23.2,<2", markers = "python_version == \"3.11\""}
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
 tzdata = ">=2022.7"
@@ -307,6 +363,18 @@ typing = ["typing-extensions"]
 xmp = ["defusedxml"]
 
 [[package]]
+name = "platformdirs"
+version = "3.11.0"
+description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.24)", "sphinx (>=7.1.1)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest-cov (>=4.1)", "pytest-mock (>=3.11.1)", "pytest (>=7.4)"]
+
+[[package]]
 name = "pluggy"
 version = "0.13.1"
 description = "plugin and hook calling mechanisms for python"
@@ -345,6 +413,14 @@ python-versions = ">=3.8"
 numpy = ">=1.16.6,<2"
 
 [[package]]
+name = "pycparser"
+version = "2.21"
+description = "C parser in Python"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
 name = "pydeck"
 version = "0.8.1b0"
 description = "Widget for deck.gl maps"
@@ -371,6 +447,35 @@ python-versions = ">=3.7"
 [package.extras]
 plugins = ["importlib-metadata"]
 windows-terminal = ["colorama (>=0.4.6)"]
+
+[[package]]
+name = "pyjwt"
+version = "2.8.0"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+crypto = ["cryptography (>=3.4.0)"]
+dev = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.4.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "pre-commit"]
+docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+
+[[package]]
+name = "pyopenssl"
+version = "24.0.0"
+description = "Python wrapper module around the OpenSSL library"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+cryptography = ">=41.0.5,<43"
+
+[package.extras]
+docs = ["sphinx (!=5.2.0,!=5.2.0.post0,!=7.2.5)", "sphinx-rtd-theme"]
+test = ["flaky", "pretend", "pytest (>=3.0.1)"]
 
 [[package]]
 name = "pytest"
@@ -412,6 +517,14 @@ description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "pyyaml"
+version = "6.0.1"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "referencing"
@@ -483,6 +596,65 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "snowflake-connector-python"
+version = "3.7.1"
+description = "Snowflake Connector for Python"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+asn1crypto = ">0.24.0,<2.0.0"
+certifi = ">=2017.4.17"
+cffi = ">=1.9,<2.0.0"
+charset-normalizer = ">=2,<4"
+cryptography = ">=3.1.0,<43.0.0"
+filelock = ">=3.5,<4"
+idna = ">=2.5,<4"
+packaging = "*"
+platformdirs = ">=2.6.0,<4.0.0"
+pyjwt = "<3.0.0"
+pyOpenSSL = ">=16.2.0,<25.0.0"
+pytz = "*"
+requests = "<3.0.0"
+sortedcontainers = ">=2.4.0"
+tomlkit = "*"
+typing-extensions = ">=4.3,<5"
+
+[package.extras]
+development = ["cython", "coverage", "more-itertools", "numpy (<1.27.0)", "pendulum (!=2.1.1)", "pexpect", "pytest (<7.5.0)", "pytest-cov", "pytest-rerunfailures", "pytest-timeout", "pytest-xdist", "pytzdata"]
+pandas = ["pandas (>=1.0.0,<3.0.0)", "pyarrow"]
+secure-local-storage = ["keyring (>=23.1.0,<25.0.0)"]
+
+[[package]]
+name = "snowflake-snowpark-python"
+version = "1.13.0"
+description = "Snowflake Snowpark for Python"
+category = "main"
+optional = false
+python-versions = ">=3.8, <3.12"
+
+[package.dependencies]
+cloudpickle = {version = "2.2.1", markers = "python_version ~= \"3.11\""}
+pyyaml = "*"
+snowflake-connector-python = ">=3.6.0,<4.0.0"
+typing-extensions = ">=4.1.0,<5.0.0"
+
+[package.extras]
+development = ["pytest (<8.0.0)", "pytest-cov", "coverage", "sphinx (==5.0.2)", "cachetools", "pytest-timeout"]
+localtest = ["pandas", "pyarrow"]
+pandas = ["snowflake-connector-python[pandas] (>=3.6.0,<4.0.0)"]
+secure-local-storage = ["snowflake-connector-python[secure-local-storage] (>=3.6.0,<4.0.0)"]
+
+[[package]]
+name = "sortedcontainers"
+version = "2.4.0"
+description = "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "streamlit"
 version = "1.31.1"
 description = "A faster way to build and share data apps"
@@ -536,6 +708,14 @@ description = "Python Library for Tom's Obvious, Minimal Language"
 category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "tomlkit"
+version = "0.12.4"
+description = "Style preserving TOML library"
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "toolz"
@@ -649,19 +829,24 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "6b5447d56da7cbca6dbdd8f138b1a44d3b88afa9e5334603c310bfa9a1549632"
+python-versions = "3.11"
+content-hash = "a53ada8296396e5d55f9ef43cbe46463c3c05873e88eddc922e3d01f0422158e"
 
 [metadata.files]
 altair = []
+asn1crypto = []
 atomicwrites = []
 attrs = []
 blinker = []
 cachetools = []
 certifi = []
+cffi = []
 charset-normalizer = []
 click = []
+cloudpickle = []
 colorama = []
+cryptography = []
+filelock = []
 gitdb = []
 gitpython = []
 idna = []
@@ -677,24 +862,33 @@ numpy = []
 packaging = []
 pandas = []
 pillow = []
+platformdirs = []
 pluggy = []
 protobuf = []
 py = []
 pyarrow = []
+pycparser = []
 pydeck = []
 pygments = []
+pyjwt = []
+pyopenssl = []
 pytest = []
 python-dateutil = []
 pytz = []
+pyyaml = []
 referencing = []
 requests = []
 rich = []
 rpds-py = []
 six = []
 smmap = []
+snowflake-connector-python = []
+snowflake-snowpark-python = []
+sortedcontainers = []
 streamlit = []
 tenacity = []
 toml = []
+tomlkit = []
 toolz = []
 tornado = []
 typing-extensions = []
