@@ -1,39 +1,10 @@
-# Streamlit Template 
+# WID
 
-This repo is for individuals who want to get started with Streamlit on client site quickly!
+Find 2 streamlit apps in the `streamlit_apps/` folder.
 
-Streamlit docs:  https://docs.streamlit.io/get-started
+`report_map.py` attempts to map incidents.
 
-## How to use this repo
+`self_report.py` allows user to self-report incidents, which is then stored in a snowflake table.
 
-1. Clone the repo
-2. Install poetry and install dependencies
-```
-poetry install
-```
-3. Run the app locally:
-```
-poetry run streamlit run app.py
-```
+Find the SQL data handling in the `snowSQL` folder
 
-
-## Steps I followed (Linux):
-
-1. Create a new poetry project
-```
-poetry new streamlit-template
-```
-
-2. Install Streamlit
-```
-poetry add streamlit
-```
-
-3. Created a basic app in app.py
-
-4. Added a module containing a callback function
-
-
-## Multipage apps
-
-Did you know you can create multipage streamlit apps? More info here: https://docs.streamlit.io/library/advanced-features/multipage-apps
