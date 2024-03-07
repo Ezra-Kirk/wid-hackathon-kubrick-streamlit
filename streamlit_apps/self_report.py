@@ -89,5 +89,7 @@ with st.form("report_crime"):
       '{perp_known}'
       )"""
       
+
+      # write query to table which stores incidents
       session.sql(query).collect()
       st.write("Incident successfully submitted")
