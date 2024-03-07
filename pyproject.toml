@@ -8,6 +8,7 @@ authors = ["Ezra-Kirk <ezrakirk@kubrickgroup.com>"]
 python = "3.11"
 streamlit = "^1.31.1"
 snowflake-snowpark-python = "^1.13.0"
+snowflake-connector-python = "^3.7.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

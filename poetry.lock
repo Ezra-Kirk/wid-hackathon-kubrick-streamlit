@@ -830,7 +830,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 [metadata]
 lock-version = "1.1"
 python-versions = "3.11"
-content-hash = "a53ada8296396e5d55f9ef43cbe46463c3c05873e88eddc922e3d01f0422158e"
+content-hash = "6f6c17ce19e83e2601ced7ebfd0cc13e748095712775f671c90991d437706ff1"
 
 [metadata.files]
 altair = []
